@@ -1,0 +1,80 @@
+/* Register page styles */
+
+.auth-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 2rem 0;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 2.5rem;
+  background: var(--surface);
+  border-radius: var(--radius-2, 14px);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-2);
+}
+
+.auth-card h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+  text-align: center;
+}
+
+.form-row {
+  margin-bottom: 1.25rem;
+}
+
+.form-row label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: .5rem;
+  color: var(--text-2);
+}
+
+.input {
+  width: 100%;
+  padding: .8rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm, 8px);
+  color: var(--text);
+  font-size: 1rem;
+  transition: border-color .2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.form-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.btn--primary {
+  width: 100%;
+  padding: .9rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm, 8px);
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.btn--primary:hover {
+  background: var(--accent-2);
+}
+
+.btn--primary:disabled {
+  background: var(--muted);
+  cursor: not-allowed;
+}

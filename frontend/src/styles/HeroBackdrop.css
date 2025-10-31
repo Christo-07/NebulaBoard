@@ -1,0 +1,10 @@
+.hero-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  transition: background 300ms ease;
+  will-change: background;
+  -webkit-mask-image: radial-gradient(100% 100% at 50% 0%, #000 70%, transparent 100%);
+  opacity: var(--bg-opacity, 1);
+}

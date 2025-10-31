@@ -1,0 +1,58 @@
+.app-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background-color: var(--brand-primary);
+  color: var(--text-tertiary);
+}
+
+.app-bar .brand {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--text-tertiary);
+  text-decoration: none;
+}
+
+.app-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-bar input {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid transparent;
+  border-radius: var(--radius-primary);
+  color: var(--text-tertiary);
+  padding: 8px 12px;
+  width: 250px;
+  transition: background-color 0.2s;
+}
+
+.search-bar input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.search-bar input:focus {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  outline: none;
+}
+
+.user-menu .avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--brand-secondary);
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+}

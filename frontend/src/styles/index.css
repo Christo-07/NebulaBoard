@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+:root{
+  --bg:       hsl(222 22% 8%);
+  --surface:  hsl(222 22% 13%);
+  --muted:    hsl(222 18% 16%);
+  --border:   hsl(222 14% 22%);
+  --text:     hsl(210 40% 98%);
+  --text-2:   hsl(215 15% 70%);
+  --accent:   hsl(221 83% 60%);
+  --accent-2: hsl(221 83% 66%);
+  --shadow-1: 0 1px 2px rgba(0,0,0,.35), 0 8px 24px rgba(0,0,0,.35);
+  --shadow-2: 0 1px 2px rgba(0,0,0,.4),  0 10px 30px rgba(0,0,0,.5);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: var(--shadow-1);
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font: 15px/1.45 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Smooth scroll & selection */
+html { scroll-behavior: smooth; }
+::selection { background: rgba(122,92,255,.25); }
+
+/* =========  CONTAINERS  ========= */
+.container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+/* Panels / cards base */
+.panel {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+/* =========  NAVBAR  ========= */
+.navbar {
+  position: sticky; top: 0; z-index: 40;
+  backdrop-filter: saturate(140%) blur(8px);
+  background: linear-gradient(to bottom, rgba(20,23,33,.75), rgba(20,23,33,.45)) !important;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Brand */
+.brand {
+  display: inline-flex; gap: .6rem; align-items: center;
+  font-weight: 800; letter-spacing: .3px;
+}
+.brand__logo {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: conic-gradient(from 210deg, var(--accent), var(--accent-2), var(--accent));
+  box-shadow: 0 6px 18px rgba(122,92,255,.5);
+}
+.card3d--hover {
+  box-shadow: 0 20px 40px rgba(0,0,0,.15);
+  border-color: var(--accent);
+}
+.tilt-disable .card3d { transform: none !important; }
+
+/* shine layer */
+.card3d__shine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(255,255,255,.25) 0%, transparent 50%);
+  opacity: var(--glow-opacity, 0);
+  pointer-events: none;
+  transition: opacity .2s ease;
+  z-index: 2;
+}
+
+/* content wrapper */
+.card3d__inner {
+  position: relative;
+  z-index: 1;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+/* Decorative left bar for task */
+.card3d__bar {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  border-radius: 4px 0 0 4px; background: linear-gradient(var(--accent), var(--accent-2));
+  z-index: 3;
+}
+
+/* Pulse "float" animation */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0) }
+  50% { transform: translateY(-6px) }
+}
+
+/* =========  GRID HELPERS  ========= */
+.grid {
+  display: grid; gap: 1rem;
+}
+.grid--cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 1100px) {
+  .grid--cols-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .grid--cols-3 { grid-template-columns: 1fr; }
+}
+
+/* =========  UTIL  ========= */
+.h1 { font-size: clamp(1.6rem, 2.4vw, 2.4rem); font-weight: 800; margin: 1.2rem 0; }
+.h2 { font-size: clamp(1.2rem, 1.8vw, 1.5rem); font-weight: 800; margin: .8rem 0; }
+.muted { color: var(--text-2); }
+.row { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
+.spacer { height: 12px; }
+
+/* =========  CURSOR (subtle)  ========= */
+body { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><circle cx="6" cy="6" r="5" fill="%237a5cff"/></svg>') 2 2, auto; }
+a, button { cursor: pointer; }
+
+/* =========  TABLE (CSV download modal or list) ========= */
+.table {
+  width: 100%; border-collapse: collapse; font-size: .95rem;
+}
+.table th, .table td { padding: .7rem .8rem; }
+.table tr + tr td, .table tr + tr th { border-top: 1px solid var(--border); }
+
+/* =========  TOAST (simple) ========= */
+.toast {
+  position: fixed; right: 18px; bottom: 18px; z-index: 60;
+  background: var(--surface); border: 1px solid var(--border);
+  box-shadow: var(--shadow); border-radius: var(--radius); padding: .8rem 1rem; min-width: 220px;
+}

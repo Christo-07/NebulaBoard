@@ -1,0 +1,9 @@
+/* Global custom CSS here */
+
+/* Page-specific styles have been moved to their respective CSS files in styles/pages/ */
+
+.main-container {
+  position: relative;
+  z-index: 1;
+  padding: 24px 0 40px;
+}
