@@ -1,0 +1,9 @@
+.metadata/
+backend/.metadata/
+backend/.settings/
+backend/.classpath
+backend/.project
+node_modules/
+target/
+dist/
+.env
